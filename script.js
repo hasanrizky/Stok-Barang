@@ -100,4 +100,17 @@ function barangKeluar() {
   }
 }
 
+function kirimKeSheets(dataBarang) {
+  fetch("URL_WEB_APP_KAMU", {
+    method: "POST",
+    body: JSON.stringify(dataBarang),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.text())
+  .then(res => console.log(res))
+  .catch(err => console.error("Gagal kirim:", err));
+}
+
 window.onload = muatData;
