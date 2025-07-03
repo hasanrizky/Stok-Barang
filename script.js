@@ -100,19 +100,6 @@ function barangKeluar() {
     alert("Barang tidak ditemukan!");
   }
 }
-kirimKeSheets({ nama, spesifikasi, jumlah, satuan });
-function kirimKeSheets(dataBarang) {
-  fetch("https://script.google.com/macros/s/AKfycbzD5OPdqhK5wRli-hufNfqRb7Uwo0eidOpLN1Pi7a2FsN0Ba8cnoOnu8e6FGhP7JR41/exec", {
-    method: "POST",
-    body: JSON.stringify(dataBarang),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(res => res.text())
-  .then(res => console.log(res))
-  .catch(err => console.error("Gagal kirim:", err));
-}
 
 function convertToCSV(dataArray) {
   const header = Object.keys(dataArray[0]).join(",");
