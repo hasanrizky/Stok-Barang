@@ -99,7 +99,7 @@ function barangKeluar() {
     alert("Barang tidak ditemukan!");
   }
 }
-
+kirimKeSheets({ nama, spesifikasi, jumlah, satuan });
 function kirimKeSheets(dataBarang) {
   fetch("URL_WEB_APP_KAMU", {
     method: "POST",
