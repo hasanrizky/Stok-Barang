@@ -1,0 +1,42 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stok Barang</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <img src="golink logo (trade mark) clear bg.png" alt="Logo" class="logo">
+  <div class="judul-wrapper">
+    <h1 class="judul">Stok Barang</h1>
+  </div>
+</header>
+  <input type="text" id="namaBarang" placeholder="Nama Barang">
+  <input type="text" id="spesifikasiBarang" placeholder="Spesifikasi Barang">
+  <input type="number" id="jumlahBarang" placeholder="Jumlah">
+  <select id="satuanBarang">
+  <option value="pcs">pcs</option>
+  <option value="roll">roll</option>
+  <option value="kg">kg</option>
+  <option value="liter">liter</option>
+</select>
+  <button onclick="tambahBarang()">Tambah</button>
+  <button onclick="barangMasuk()">Barang Masuk</button>
+  <button onclick="barangKeluar()">Barang Keluar</button>
+  <table id="tabelStok">
+  <thead>
+    <tr>
+      <th>Nama Barang</th>
+      <th>Spesifikasi</th>
+      <th>Jumlah</th>
+      <th>Satuan</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody id="isiTabel"></tbody>
+</table>
+
+  <script src="script.js"></script>
+</body>
+</html>
