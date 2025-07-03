@@ -6,6 +6,7 @@ function tambahBarang() {
   const spesifikasi = document.getElementById("spesifikasiBarang").value;
   const jumlah = document.getElementById("jumlahBarang").value;
   const satuan = document.getElementById("satuanBarang").value;
+  const data = JSON.parse(localStorage.getItem("stokBarang"));
 
   if (nama && jumlah && spesifikasi) {
     daftarBarang.push({ nama, spesifikasi, jumlah, satuan });
@@ -113,4 +114,21 @@ function kirimKeSheets(dataBarang) {
   .catch(err => console.error("Gagal kirim:", err));
 }
 
+function convertToCSV(dataArray) {
+  const header = Object.keys(dataArray[0]).join(",");
+  const rows = dataArray.map(obj => Object.values(obj).join(","));
+  return [header, ...rows].join("\n");
+}
+
+function downloadCSV() {
+  const data = JSON.parse(localStorage.getItem("stokBarang"));
+  if (!data || data.length === 0) return alert("Data kosong!");
+
+  const csv = convertToCSV(data);
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "stok_barang.csv";
+  link.click();
+}
 window.onload = muatData;
