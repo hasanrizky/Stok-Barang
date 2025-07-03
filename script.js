@@ -101,7 +101,7 @@ function barangKeluar() {
 }
 kirimKeSheets({ nama, spesifikasi, jumlah, satuan });
 function kirimKeSheets(dataBarang) {
-  fetch("URL_WEB_APP_KAMU", {
+  fetch("https://script.google.com/macros/s/AKfycbzD5OPdqhK5wRli-hufNfqRb7Uwo0eidOpLN1Pi7a2FsN0Ba8cnoOnu8e6FGhP7JR41/exec", {
     method: "POST",
     body: JSON.stringify(dataBarang),
     headers: {
